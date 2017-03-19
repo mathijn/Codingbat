@@ -47,6 +47,20 @@ public String makeOutWord(String out, String word) {
 }
 
 /*
+Given an "out" string length 4, such as "<<>>", and a word, return a new string where the word is in the middle of the out string, e.g. "<<word>>". Note: use str.substring(i, j) to extract the String starting at index i and going up to but not including index j.
+
+makeOutWord("<<>>", "Yay") → "<<Yay>>"
+makeOutWord("<<>>", "WooHoo") → "<<WooHoo>>"
+makeOutWord("[[]]", "word") → "[[word]]"
+*/
+
+public String makeOutWord(String out, String word) {
+  String first = out.substring(0,2);
+  String last = out.substring(2);
+  return first+word+last;
+}
+
+/*
 Given a string, return a new string made of 3 copies of the last 2 chars of the original string. The string length will be at least 2.
 
 extraEnd("Hello") → "lololo"
@@ -272,4 +286,67 @@ public boolean hasBad(String str) {
   }
   return false;
 }
+
+/*
+
+Given a string, return a string length 2 made of its first 2 chars. If the string length is less than 2, use '@' for the missing chars.
+
+atFirst("hello") → "he"
+atFirst("hi") → "hi"
+atFirst("h") → "h@"
+*/
+
+public String atFirst(String str) {
+  if(str.length() == 1){
+    return str+"@";
+  }else if(str.length()<1){
+    return "@@";
+  }
+  return str.substring(0,2);
+}
+
+/*
+Given 2 strings, a and b, return a new string made of the first char of a and the last char of b, so "yo" and "java" yields "ya". If either string is length 0, use '@' for its missing char.
+
+lastChars("last", "chars") → "ls"
+lastChars("yo", "java") → "ya"
+lastChars("hi", "") → "h@"
+*/
+
+public String lastChars(String a, String b) {
+  if(a.length()==0 && b.length()==0){
+    return "@@";
+  }
+  if(a.length()==0){
+    return "@"+b.substring(b.length()-1);
+  }
+  if(b.length()==0){
+    return a.substring(0,1)+"@";
+  }
+  return a.substring(0,1)+b.substring(b.length()-1);
+}
+
+/*
+Given two strings, append them together (known as "concatenation") and return the result. However, if the concatenation creates a double-char, then omit one of the chars, so "abc" and "cat" yields "abcat".
+
+conCat("abc", "cat") → "abcat"
+conCat("dog", "cat") → "dogcat"
+conCat("abc", "") → "abc"
+*/
+
+public String conCat(String a, String b) {
+  if(b.length() < 1){
+    return a;
+  }
+  if(a.length() < 1){
+    return b;
+  }
+  String alast = a.substring(a.length()-1);
+  String bfirst = b.substring(0,1);
+  if(alast.equals(bfirst)){
+    return a+b.substring(1);
+  }
+  return a+b;
+}
+
 
