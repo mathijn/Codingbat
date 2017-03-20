@@ -470,3 +470,6 @@ deFront("java") → "va"
 deFront("away") → "aay"
 */
 
+public String yo_mama(){
+  
+}
