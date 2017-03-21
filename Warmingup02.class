@@ -49,4 +49,3 @@ int countXX(String str) {
   }
   return count;
 }
-
