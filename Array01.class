@@ -70,3 +70,19 @@ rotateLeft3([1, 2, 3]) → [2, 3, 1]
 rotateLeft3([5, 11, 9]) → [11, 9, 5]
 rotateLeft3([7, 0, 0]) → [0, 0, 7]
 */
+
+public int[] rotateLeft3(int[] nums) {
+  //maak een nieuwe arrray
+  int[] newArray = new int[nums.length];
+  //set een counter om de plek aan te wijzen in newArray
+  int count = 0;
+    for(int i = 1; i < nums.length; i++){
+    //vul de newArray met de 2e en 3e waarde van nums;
+    //de eerste waarde van nums wordt hierbij nog overgeslagen, deze wordt na de for loop op de juiste plek gezet
+    newArray[count] = nums[i];
+    count++;
+  }
+  //vul de laatste plek in newArray met de eerste waarde van nums
+  newArray[nums.length-1] = nums[0];
+  return newArray;
+}
