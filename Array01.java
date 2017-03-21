@@ -86,3 +86,6 @@ public int[] rotateLeft3(int[] nums) {
   newArray[nums.length-1] = nums[0];
   return newArray;
 }
+
+
+
