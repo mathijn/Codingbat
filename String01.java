@@ -568,6 +568,3 @@ public String withoutX2(String str) {
   }
   return str;
 }
-
-
-
